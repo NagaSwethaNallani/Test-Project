@@ -1,0 +1,15 @@
+pipeline{//  starts with the pipline block -main characterstics of the ci/cd process in jenkins 
+	agent any // tells jenkins to run this pipiline on any avaliable agent
+	stages{ // defines the list of stages in the pipline 
+		stage('Build'){ // defines the stage name build
+			steps{ // inside each , the steps block  lists the actual command to run 
+				sh 'mvn clean complie' // sh refers to shell, clean  deletes the target folder 
+			}
+		}
+		stage('Test'){// another stage name test to run test cases
+			steps{
+				sh 'mvn test' // this excutes all your testcases
+			}
+		}
+	}
+}
